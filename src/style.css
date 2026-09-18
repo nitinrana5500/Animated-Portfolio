@@ -55,6 +55,64 @@ body {
   width: 100%;
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━ LOADER SCREEN ━━━━━━━━━━━━━━━━━━━━ */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 280px;
+}
+
+.loader-logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #fff;
+  animation: loader-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes loader-pulse {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1; }
+}
+
+.loader-bar-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+#loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-orange), #ff8c5a);
+  border-radius: 9999px;
+  transition: width 0.25s ease;
+  box-shadow: 0 0 12px rgba(255, 82, 25, 0.6);
+}
+
+#loader-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ━━━━━━━━━━━━━━━━━━━━ HEADER ━━━━━━━━━━━━━━━━━━━━ */
 .site-header {
   position: fixed;
