@@ -985,6 +985,7 @@ body {
   border-radius: 999px;
   background: var(--color-orange);
   font-size: 16px;
+  box-shadow: 0 4px 24px rgba(255, 82, 25, 0.4);
 }
 
 .menu-toggle:focus-visible,
@@ -997,7 +998,7 @@ body {
   letter-spacing: 3px;
 }
 .header-inner .logo b, .loader-logo b {
-  color: #ff5219;
+  color: var(--color-orange);
 }
 @keyframes drawer-enter {
   from {
