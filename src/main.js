@@ -6,6 +6,8 @@ import './style.css';
    CONFIG
 ───────────────────────────────────────────────────────── */
 const TOTAL_FRAMES = 300;
+const mobileViewport = window.matchMedia('(max-width: 640px)');
+let frameGeneration = 0;
 // Minimum % of frames loaded before we unlock scrolling
 const MIN_LOADED_PERCENT = 0.25; // 25% = 75 frames
 // Max frames the animation can jump per RAF tick (prevents freeze-frame skip)
@@ -35,7 +37,9 @@ let scrollUnlocked = false;
 ───────────────────────────────────────────────────────── */
 function getFrameUrl(index) {
   const n = String(index + 1).padStart(3, '0');
-  return `/frames/ezgif-frame-${n}.png`;
+  const folder = mobileViewport.matches ? 'frames-mobile' : 'frames';
+  const extension = mobileViewport.matches ? 'jpg' : 'png';
+  return `${import.meta.env.BASE_URL}${folder}/ezgif-frame-${n}.${extension}`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -128,6 +132,7 @@ let nextToLoad = 0;
 function loadNext() {
   if (nextToLoad >= TOTAL_FRAMES) return;
   const index = nextToLoad++;
+  const generation = frameGeneration;
 
   const img = new Image();
   img.decoding = 'async';
@@ -135,6 +140,7 @@ function loadNext() {
   images[index] = img;
 
   img.onload = () => {
+    if (generation !== frameGeneration) return;
     loaded[index] = true;
     loadedCount++;
     updateLoader();
@@ -145,6 +151,7 @@ function loadNext() {
   };
 
   img.onerror = () => {
+    if (generation !== frameGeneration) return;
     // Skip broken frame, still count it so we don't hang
     loaded[index] = false;
     loadedCount++;
@@ -227,7 +234,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       const el = document.querySelector(id);
       if (el) {
         e.preventDefault();
-        lenis.scrollTo(el, { offset: -64, duration: 1.5 });
+        lenis.scrollTo(el, { offset: -(header?.offsetHeight || 64), duration: 1.5 });
       }
     }
   });
@@ -237,6 +244,15 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
    INIT
 ───────────────────────────────────────────────────────── */
 window.addEventListener('resize', resizeCanvas);
+mobileViewport.addEventListener('change', () => {
+  frameGeneration++;
+  images.fill(null);
+  loaded.fill(false);
+  loadedCount = 0;
+  nextToLoad = 0;
+  lastRenderedFrame = -1;
+  preloadImages();
+});
 resizeCanvas();
 preloadImages();
 requestAnimationFrame(animate);
