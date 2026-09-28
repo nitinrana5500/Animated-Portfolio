@@ -227,6 +227,34 @@ function animate(time) {
 /* ─────────────────────────────────────────────────────────
    NAV ANCHOR SCROLL
 ───────────────────────────────────────────────────────── */
+// Native modal dialog supplies focus trapping and makes the page behind it inert.
+const mobileMenu = document.getElementById('mobile-menu');
+const menuToggle = document.querySelector('.menu-toggle');
+function closeMobileMenu() {
+  if (!mobileMenu.open) return;
+  mobileMenu.close();
+  menuToggle.setAttribute('aria-expanded', 'false');
+  if (scrollUnlocked) lenis.start();
+}
+menuToggle.addEventListener('click', () => {
+  if (!mobileViewport.matches) return;
+  mobileMenu.showModal();
+  menuToggle.setAttribute('aria-expanded', 'true');
+  lenis.stop();
+});
+mobileMenu.querySelector('.menu-close').addEventListener('click', closeMobileMenu);
+mobileMenu.addEventListener('cancel', (event) => {
+  event.preventDefault();
+  closeMobileMenu();
+});
+mobileMenu.addEventListener('click', (event) => {
+  const bounds = mobileMenu.getBoundingClientRect();
+  if (event.target === mobileMenu && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) closeMobileMenu();
+});
+mobileViewport.addEventListener('change', () => {
+  if (!mobileViewport.matches) closeMobileMenu();
+});
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', (e) => {
     const id = anchor.getAttribute('href');
@@ -234,6 +262,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       const el = document.querySelector(id);
       if (el) {
         e.preventDefault();
+        if (anchor.closest('#mobile-menu')) closeMobileMenu();
         lenis.scrollTo(el, { offset: -(header?.offsetHeight || 64), duration: 1.5 });
       }
     }
