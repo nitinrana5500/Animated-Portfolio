@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitin Rana — Frontend Developer &amp; Shopify Expert</title>
+  <meta name="description" content="Nitin Rana's frontend development portfolio. Explore React projects and skills in Shopify, HTML, CSS, Bootstrap, Tailwind CSS, Webflow, Git, and Sass." />
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="/dist/assets/android-chrome-192x192.png">
+  <script type="module" crossorigin src="/assets/index-D1dcj9UD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Cad9NnEl.css">
+</head>
+
+<body>
+  <!-- Background Fixed Canvas for Scroll Animation -->
+  <canvas id="canvas"></canvas>
+
+  <dialog id="mobile-menu" class="mobile-menu" aria-labelledby="mobile-menu-title" data-lenis-prevent>
+    <div class="mobile-menu-heading">
+      <span id="mobile-menu-title">Menu</span>
+      <button class="menu-close" type="button" aria-label="Close menu" autofocus>&times;</button>
+    </div>
+    <nav class="mobile-menu-links" aria-label="Mobile navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact" class="mobile-menu-contact">Get in touch <span aria-hidden="true">&#8599;</span></a>
+    </nav>
+  </dialog>
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo"><b>P</b>ortfolio</div>
+      <div class="loader-bar-track">
+        <div id="loader-bar"></div>
+      </div>
+      <span id="loader-count">0%</span>
+    </div>
+  </div>
+
+  <!-- Page Content Overlay -->
+  <div id="page-wrapper">
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="#" class="logo"><b>N</b>itin <b>R</b>ana</a>
+        <nav class="nav-links">
+          <a href="#home" class="nav-item">Home</a>
+          <a href="#about" class="nav-item">About</a>
+          <a href="#projects" class="nav-item">Projects</a>
+          <a href="#contact" class="btn-pill btn-white">
+            <span>Get in touch</span>
+            <span class="btn-icon orange-bg">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+        </nav>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" aria-haspopup="dialog">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-container">
+        <div class="hero-top-row">
+          <!-- Left Hero Headline -->
+          <div class="hero-left-col">
+            <span class="hero-subline">Hey, I'm a</span>
+            <h1 class="hero-headline">
+              Frontend<br />Developer
+            </h1>
+          </div>
+
+          <!-- Right Hero Quote -->
+          <div class="hero-right-col">
+            <h2 class="hero-statement">Thoughtful interfaces.<br />Built with code.</h2>
+            <p class="hero-statement-desc">
+              I'm Nitin, a frontend developer and Shopify expert. I build responsive web experiences with React, modern CSS, and a focus on the details.
+            </p>
+          </div>
+        </div>
+
+        <!-- Hero Bottom Services Row -->
+        <div class="hero-services-row">
+          <div class="service-pill">
+            <span class="service-tag">#01</span>
+            <span class="service-label">React Development</span>
+          </div>
+          <div class="service-pill">
+            <span class="service-tag">#02</span>
+            <span class="service-label">Shopify Expert</span>
+          </div>
+          <div class="service-pill">
+            <span class="service-tag">#03</span>
+            <span class="service-label">Responsive Websites</span>
+          </div>
+          <div class="service-pill">
+            <span class="service-tag">#04</span>
+            <span class="service-label">Webflow Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands Bar Section -->
+    <section class="brands-section">
+      <div class="brands-card">
+        <div class="brands-left">
+          <span class="brands-lead">The tools behind my work</span>
+        </div>
+        <div class="brands-grid">
+          <div class="brand-item">
+            <svg class="brand-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <circle cx="12" cy="12" r="8"></circle>
+            </svg>
+            <span class="brand-text">React</span>
+          </div>
+
+          <div class="brand-item">
+            <svg class="brand-svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 3h12l-4 7h-4L6 3zm0 18h12l-4-7h-4l-4 7z"></path>
+            </svg>
+            <span class="brand-text">Shopify</span>
+          </div>
+
+          <div class="brand-item">
+            <svg class="brand-svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
+              <path d="M12 3a9 9 0 0 0 0 18V3z"></path>
+            </svg>
+            <span class="brand-text">Webflow</span>
+          </div>
+
+          <div class="brand-item">
+            <svg class="brand-svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 5h5a7 7 0 0 1 0 14H7a7 7 0 0 1 0-14z"></path>
+              <circle cx="15.5" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"></circle>
+            </svg>
+            <span class="brand-text">Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Behind the Designs Section -->
+    <section class="behind-section" id="about">
+      <div class="behind-container">
+        <!-- Top Row -->
+        <div class="behind-top-row">
+          <div class="behind-title-col">
+            <span class="badge-tag">Selected Projects</span>
+            <h2 class="behind-headline">
+              Shaping<br />Experiences That<br />Make Life Simpler
+            </h2>
+          </div>
+
+          <div class="behind-desc-col">
+            <p class="behind-summary">
+              I turn ideas into responsive websites and interactive interfaces. Here is a selection of my frontend work, starting with Animate, built with React.
+            </p>
+            <div class="behind-action-box">
+              <div class="action-text">
+                <span class="action-sub">Let's Build Something</span>
+                <span class="action-main">Meaningful Together</span>
+              </div>
+              <a href="#contact" class="btn-pill btn-orange">
+                <span>Get in touch</span>
+                <span class="btn-icon white-bg">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff5a26" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="cards-grid nr-project-grid" id="projects">
+          <article class="card-wrap">
+            <a href="https://animation-store-5owf.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-link">
+              <div class="card-image-box">
+                <img src="/assets/project.png" alt="Animate React project preview" class="card-img" loading="lazy" />
+              </div>
+              <div class="project-details">
+                <span class="project-label">React Project / 01</span>
+                <h3>Animate<b>.</b></h3>
+              </div>
+            </a>
+          </article>
+          <article class="card-wrap">
+            <div class="card-image-box project-placeholder" aria-hidden="true">
+              <span>Coming Soon</span>
+            </div>
+            <div class="project-details">
+              <span class="project-label">Placeholder / 02</span>
+              <h3>Next Project</h3>
+            </div>
+          </article>
+          <article class="card-wrap">
+            <div class="card-image-box project-placeholder" aria-hidden="true">
+              <span>Coming Soon</span>
+            </div>
+            <div class="project-details">
+              <span class="project-label">Placeholder / 03</span>
+              <h3>Next Project</h3>
+            </div>
+          </article>
+          <article class="card-wrap">
+            <div class="card-image-box project-placeholder" aria-hidden="true">
+              <span>Coming Soon</span>
+            </div>
+            <div class="project-details">
+              <span class="project-label">Placeholder / 04</span>
+              <h3>Next Project</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="portfolio-section" id="services" aria-labelledby="services-title">
+      <div class="section-container">
+        <div class="section-heading-row">
+          <div>
+            <span class="badge-tag">My Skills</span>
+            <h2 class="section-title" id="services-title">The skills behind<br />every interface.</h2>
+          </div>
+          <p class="section-intro">From React interfaces to Shopify storefronts, these are the technologies I use to bring websites to life.</p>
+        </div>
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <span class="expertise-number" aria-hidden="true">01 /</span>
+            <h3>Frontend Development</h3>
+            <p>I build interfaces with React, HTML, and CSS, breaking pages into reusable components and adapting layouts for different screen sizes.</p>
+            <ul class="expertise-tags" aria-label="Frontend skills"><li>React</li><li>HTML</li><li>CSS</li></ul>
+          </article>
+          <article class="expertise-card">
+            <span class="expertise-number" aria-hidden="true">02 /</span>
+            <h3>Shopify Expert</h3>
+            <p>I work with Shopify to build and customize storefronts, with attention to product presentation, clear navigation, and the mobile shopping experience.</p>
+            <ul class="expertise-tags" aria-label="Shopify skills"><li>Shopify</li><li>Storefronts</li><li>Theme Customization</li></ul>
+          </article>
+          <article class="expertise-card">
+            <span class="expertise-number" aria-hidden="true">03 /</span>
+            <h3>Responsive Styling</h3>
+            <p>I use Bootstrap, Tailwind CSS, and Sass to create consistent layouts, refine visual details, and keep styles organized across screen sizes.</p>
+            <ul class="expertise-tags" aria-label="Styling skills"><li>Bootstrap</li><li>Tailwind CSS</li><li>Sass</li></ul>
+          </article>
+          <article class="expertise-card">
+            <span class="expertise-number" aria-hidden="true">04 /</span>
+            <h3>Webflow &amp; Version Control</h3>
+            <p>I build responsive websites in Webflow and use Git to track code changes and keep development work organized.</p>
+            <ul class="expertise-tags" aria-label="Website tools"><li>Webflow</li><li>Git</li><li>Version Control</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="portfolio-section process-section" id="process" aria-labelledby="process-title">
+      <div class="section-container">
+        <div class="section-heading-row">
+          <div>
+            <span class="badge-tag">My Process</span>
+            <h2 class="section-title" id="process-title">From idea<br />to implementation.</h2>
+          </div>
+          <p class="section-intro">My approach to frontend work: understand the requirements, build the interface, and check the details before delivery.</p>
+        </div>
+        <ol class="process-grid">
+          <li class="process-step"><span class="step-number" aria-hidden="true">01</span><h3>Understand</h3><p>Review the requirements, page designs, and user flow. Break the work into clear components and tasks.</p></li>
+          <li class="process-step"><span class="step-number" aria-hidden="true">02</span><h3>Build</h3><p>Develop the interface with the right tools for the project, from React components to Shopify or Webflow pages.</p></li>
+          <li class="process-step"><span class="step-number" aria-hidden="true">03</span><h3>Check &amp; Refine</h3><p>Check layouts across screen sizes, test interactions, and refine spacing, usability, and visual details.</p></li>
+          <li class="process-step"><span class="step-number" aria-hidden="true">04</span><h3>Deliver</h3><p>Review the final changes, organize the code with Git, and prepare the website for launch and handoff.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Frequently asked questions: native disclosures support keyboard use. -->
+    <section class="portfolio-section" id="faq" aria-labelledby="faq-title">
+      <div class="section-container faq-layout">
+        <div>
+          <span class="badge-tag">A Few Answers</span>
+          <h2 class="section-title" id="faq-title">A little more<br />about my work.</h2>
+          <p class="section-intro faq-intro">A quick overview of my frontend focus, technical skills, and projects to explore during a conversation.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What is your development focus?<span class="faq-toggle" aria-hidden="true"></span></summary>
+            <p>I'm a frontend developer focused on responsive websites, React interfaces, and Shopify storefronts. I also work with Webflow.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which technologies do you use?<span class="faq-toggle" aria-hidden="true"></span></summary>
+            <p>My toolkit includes React, HTML, CSS, Bootstrap, Tailwind CSS, Sass, Shopify, Webflow, and Git. I choose tools based on the needs of each project.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Where can I see a React project?<span class="faq-toggle" aria-hidden="true"></span></summary>
+            <p>Explore Animate in the Projects section. The project card links to the live website so you can try the interface yourself.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do you approach responsive development?<span class="faq-toggle" aria-hidden="true"></span></summary>
+            <p>I use flexible layouts and responsive styles, then check how content and interactions behave on mobile, tablet, and desktop screen sizes.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do you manage your code?<span class="faq-toggle" aria-hidden="true"></span></summary>
+            <p>I use Git for version control to track changes and organize my development workflow.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        <nav class="footer-section-links" aria-label="Explore the portfolio">
+          <a href="#services">Skills</a>
+          <a href="#process">My Process</a>
+          <a href="#faq">FAQ</a>
+          <a href="#home">Back to top <span aria-hidden="true">&uarr;</span></a>
+        </nav>
+        <div class="footer-bottom">
+          <span>&copy; 2026 Nitin Rana. All rights reserved.</span>
+          <span>Frontend Developer &middot; React &middot; Shopify Expert</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>
